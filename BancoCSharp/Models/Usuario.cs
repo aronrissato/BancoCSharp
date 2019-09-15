@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace BancoCSharp.Models
             CriadoEm = DateTime.Now;
         }
 
-
+        [Key]
         public string Login { get; set; }
         public string Senha { get; set; }
         public DateTime CriadoEm { get; set; }

@@ -12,6 +12,8 @@ namespace BancoCSharp.Models
         public Context() : base("BancoCSharp") { }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Conta> Contas { get; set; }
-        public DbSet<Extrato> extratos { get; set; }
+        //public DbSet<Extrato> extratos { get; set; }
+
+
     }
 }
