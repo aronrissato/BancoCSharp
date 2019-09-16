@@ -19,7 +19,7 @@ namespace BancoCSharp.Models
         [Key]
         public string Login { get; set; }
         public string Senha { get; set; }
-        public DateTime CriadoEm { get; set; }
+        protected DateTime CriadoEm { get; set; }
 
     }
 }

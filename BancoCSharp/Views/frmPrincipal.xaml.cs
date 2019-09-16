@@ -41,5 +41,16 @@ namespace BancoCSharp
             operacoes.ShowDialog();
         }
 
+        private void NovoUsuario()
+        { 
+        TextBlock tb = new TextBlock();
+        var hp = new Hyperlink(new Run("error"));
+        hp.Click += (s, e) => { /* do something */ };
+        }
+
+
+
+
+
     }
 }
