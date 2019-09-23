@@ -18,11 +18,15 @@ namespace BancoCSharp.Models
         }
 
         [Key]
+        public string IdCliente { get; set; }
+        public string Login { get; set; }
         public string Cpf { get; set; }
         public string Nome { get; set; }
-        public Usuario Usuario { get; set; }
         public string Endereco { get; set; }
         public DateTime DataNascimento { get; set; }
         public DateTime CriadoEm { get; set; }
+
+        [ForeignKey("Login")]
+        public virtual Usuario Usuario { get; set; }
     }
 }

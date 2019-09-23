@@ -37,19 +37,35 @@ namespace BancoCSharp
 
         private void BtnRealizarLogin_Click(object sender, RoutedEventArgs e)
         {
-            frmOperacoes operacoes = new frmOperacoes();
-            operacoes.ShowDialog();
-        }
-
-        private void NovoUsuario()
-        { 
-        TextBlock tb = new TextBlock();
-        var hp = new Hyperlink(new Run("error"));
-        hp.Click += (s, e) => { /* do something */ };
+            frmEscolhaConta contas = new frmEscolhaConta();
+            contas.ShowDialog();
         }
 
 
 
+
+
+
+
+        //private void NovoUsuario()
+        //{ 
+        //TextBlock tb = new TextBlock();
+        //var hp = new Hyperlink(new Run("error"));
+        //hp.Click += (s, e) => { /* do something */ };
+        //}
+
+        private void BtnNovaConta_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastrarUsuario u = new frmCadastrarUsuario();
+            u.ShowDialog();
+        }
+        
+
+        //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    MessageBox.Show("you have clicked a link label");
+        //    //or whatever action you want it to do.
+        //}
 
 
     }

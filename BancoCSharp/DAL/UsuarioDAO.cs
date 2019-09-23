@@ -9,20 +9,29 @@ namespace BancoCSharp.DAL
 {
     class UsuarioDAO
     {
-        Usuario u = new Usuario();
-
-        public string CadastrarUsuario()
+        private static Context ctx = new Context();
+        public static Usuario BuscarUsuarioPorLogin(Usuario u)
         {
-
-
-
-
-
-
-            return;
+            return ctx.Usuarios.FirstOrDefault
+                (x => x.Login.Equals(u.Login));
         }
 
+        public static bool CadastrarUsuario(Usuario u)
+        {
+            if (BuscarUsuarioPorLogin(u) == null)
+            {
+                ctx.Usuarios.Add(u);
+                ctx.SaveChanges();
 
+                return true;
+            }
+            return false;
+        }
+
+        public static Usuario BuscarUsuarioPorCpf(int Cpf)
+        {
+            return ctx.Usuarios.Find(Cpf);
+        }
 
     }
 }

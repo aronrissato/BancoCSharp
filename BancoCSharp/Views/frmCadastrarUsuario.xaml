@@ -1,0 +1,19 @@
+﻿<Window x:Class="BancoCSharp.Views.frmCadastrarUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BancoCSharp.Views"
+        mc:Ignorable="d"
+        Title="frmCadastrarUsuario" Height="262.333" Width="462">
+    <Grid>
+        <Label Content="Digite seu login:" HorizontalAlignment="Left" Margin="14,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Digite sua senha:" HorizontalAlignment="Left" Margin="14,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Digite novamente sua senha:" HorizontalAlignment="Left" Margin="14,124,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="22" Margin="182,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+        <PasswordBox x:Name="pswSenha" HorizontalAlignment="Left" Height="23" Margin="182,73,0,0" VerticalAlignment="Top" Width="244"/>
+        <PasswordBox x:Name="pswRepitaSenha" HorizontalAlignment="Left" Height="23" Margin="182,124,0,0" VerticalAlignment="Top" Width="244"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="351,184,0,0" VerticalAlignment="Top" Width="75" Click="BtnCadastrar_Click"/>
+
+    </Grid>
+</Window>

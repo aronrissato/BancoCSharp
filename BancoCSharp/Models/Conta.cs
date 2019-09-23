@@ -20,10 +20,13 @@ namespace BancoCSharp.Models
 
         [Key]
         public int DigConta { get; set; }
-        public Cliente ContaCliente { get; set; }
         public double Saldo { get; set; }
+        public string IdCliente { get; set; }
         public Operacao Extrato { get; set; }
-        public DateTime CriadoEm { get; set; }
+        protected DateTime CriadoEm { get; set; }
+
+        [ForeignKey("IdCliente")]
+        public virtual Cliente Cliente { get; set; }
 
 
 

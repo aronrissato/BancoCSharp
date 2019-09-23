@@ -10,11 +10,11 @@
         <Label Content="Escolha a operação que deseja realizar:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" Height="36" Width="308" FontSize="17"/>
         <Label Content="Boa noite, Aron" HorizontalAlignment="Left" Margin="36,28,0,0" VerticalAlignment="Top" Height="41" Width="158" FontSize="15"/>
         <Label Content="SALDO: " HorizontalAlignment="Left" Margin="582,10,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Button x:Name="btnSaque" Content="Saque" HorizontalAlignment="Left" Margin="36,120,0,0" VerticalAlignment="Top" Width="202" Click="Button_Click" Height="50"/>
+        <Button x:Name="btnSaque" Content="Saque" HorizontalAlignment="Left" Margin="36,120,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
         <Button x:Name="btnDeposito" Content="Depósito" HorizontalAlignment="Left" Margin="36,174,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
         <Button x:Name="btnBoleto" Content="Boletos" HorizontalAlignment="Left" Margin="36,284,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
         <Button x:Name="btnTransferencia" Content="Transferência" HorizontalAlignment="Left" Margin="36,230,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
-        <Button x:Name="btnExtrato" Content="Extrato" HorizontalAlignment="Left" Margin="36,339,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="Button_Click_1"/>
+        <Button x:Name="btnExtrato" Content="Extrato" HorizontalAlignment="Left" Margin="36,339,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="36,120,0,0" VerticalAlignment="Top" Width="524">
             <Label Content="O saque realizado pode ser retirado em qualquer uma &#xD;&#xA;de nossas agências!" HorizontalAlignment="Left" Margin="201,-1,-1,0" VerticalAlignment="Top" Height="49" Width="322" RenderTransformOrigin="0.471,0.694" FontWeight="Medium" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic"/>
         </Border>
