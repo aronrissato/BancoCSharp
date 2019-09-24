@@ -10,7 +10,7 @@ namespace BancoCSharp.Models
 {
     [Table("Cliente")]
 
-    class Cliente
+    public class Cliente
     {
         public Cliente()
         {
@@ -18,15 +18,13 @@ namespace BancoCSharp.Models
         }
 
         [Key]
-        public string IdCliente { get; set; }
-        public string Login { get; set; }
+        public int Id { get; set; }
         public string Cpf { get; set; }
         public string Nome { get; set; }
         public string Endereco { get; set; }
         public DateTime DataNascimento { get; set; }
         public DateTime CriadoEm { get; set; }
 
-        [ForeignKey("Login")]
-        public virtual Usuario Usuario { get; set; }
+        public virtual Usuario UsuarioId { get; set; }
     }
 }

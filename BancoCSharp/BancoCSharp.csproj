@@ -86,6 +86,14 @@
     <Compile Include="DAL\ContaDAO.cs" />
     <Compile Include="DAL\OperacaoDAO.cs" />
     <Compile Include="DAL\UsuarioDAO.cs" />
+    <Compile Include="Migrations\201909242139450_AjusteOperacoes.cs" />
+    <Compile Include="Migrations\201909242139450_AjusteOperacoes.Designer.cs">
+      <DependentUpon>201909242139450_AjusteOperacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909242141229_NomeadaTabelaOperacoes.cs" />
+    <Compile Include="Migrations\201909242141229_NomeadaTabelaOperacoes.Designer.cs">
+      <DependentUpon>201909242141229_NomeadaTabelaOperacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Operacao.cs" />
@@ -120,6 +128,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201909242139450_AjusteOperacoes.resx">
+      <DependentUpon>201909242139450_AjusteOperacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909242141229_NomeadaTabelaOperacoes.resx">
+      <DependentUpon>201909242141229_NomeadaTabelaOperacoes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

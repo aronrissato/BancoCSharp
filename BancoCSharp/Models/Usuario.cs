@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace BancoCSharp.Models
 {
     [Table("Usuario")]
-    class Usuario
+
+    public class Usuario
     {
         public Usuario()
         {
@@ -17,6 +18,7 @@ namespace BancoCSharp.Models
         }
 
         [Key]
+        public int Id { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
         protected DateTime CriadoEm { get; set; }
