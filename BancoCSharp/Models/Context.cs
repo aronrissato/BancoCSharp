@@ -4,7 +4,7 @@ namespace BancoCSharp.Models
 {
     class Context : DbContext
     {
-        public Context() : base("DefaultConnection") { }
+        public Context() : base("BancoCSharp") { }
 
         public DbSet<Usuario> Usuarios { get; set; }        
         public DbSet<Cliente> Clientes { get; set; }

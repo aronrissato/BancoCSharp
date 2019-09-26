@@ -37,6 +37,9 @@ namespace BancoCSharp
 
         private void BtnRealizarLogin_Click(object sender, RoutedEventArgs e)
         {
+            
+
+
             frmEscolhaConta contas = new frmEscolhaConta();
             contas.ShowDialog();
         }

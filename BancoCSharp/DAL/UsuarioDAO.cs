@@ -12,8 +12,7 @@ namespace BancoCSharp.DAL
         private static Context ctx = new Context();
         public static Usuario BuscarUsuarioPorLogin(Usuario u)
         {
-            return ctx.Usuarios.FirstOrDefault
-                (x => x.Login.Equals(u.Login));
+            return ctx.Usuarios.FirstOrDefault(x => x.Login.Equals(u.Login));
         }
 
         public static bool CadastrarUsuario(Usuario u)
@@ -28,10 +27,18 @@ namespace BancoCSharp.DAL
             return false;
         }
 
-        public static Usuario BuscarUsuarioPorCpf(int Cpf)
+        public static Usuario BuscarUsuarioPorLogin(int Login)
         {
-            return ctx.Usuarios.Find(Cpf);
+            return ctx.Usuarios.Find(Login);
         }
+
+        public static Usuario ValidarLogin(Usuario u)
+        {
+            var login = ctx.Usuarios.Where(x => x.Login == u.Login && x.Senha == u.Senha).FirstOrDefault();
+
+            return login;
+        }
+
 
     }
 }

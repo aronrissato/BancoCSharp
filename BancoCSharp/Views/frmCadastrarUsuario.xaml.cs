@@ -1,4 +1,5 @@
-﻿using BancoCSharp.Models;
+﻿using BancoCSharp.DAL;
+using BancoCSharp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,18 +45,32 @@ namespace BancoCSharp.Views
 
             if (pswRepitaSenha.Password != pswSenha.Password)
             {
-                MessageBox.Show("Senha digitada não confere com a confirmação da senha",
-                    "BancoCSharp", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                MessageBox.Show("Senha digitada não confere com a confirmação da senha","BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
+                LimparFormulario();
             }
             else
             {
-                MessageBox.Show("Usuário cadastrado com sucesso!",
-                        "Banco CSharp", MessageBoxButton.OK,
-                        MessageBoxImage.Information);
-                LimparFormulario();
-                
+                u = UsuarioDAO.BuscarUsuarioPorLogin(u);
+
+                if (u != null)
+                {
+                    txtLogin.Text = u.Login;
+                    pswSenha.Password = u.Senha;
+
+                    MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimparFormulario();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário já cadastrado!", "BancoCSharp");
+                    LimparFormulario();
+                }
             }
         }
     }
 }
+
+
+
+
+
