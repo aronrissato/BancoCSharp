@@ -17,26 +17,35 @@ namespace BancoCSharp.DAL
 
         public static bool CadastrarUsuario(Usuario u)
         {
-            if (BuscarUsuarioPorLogin(u) == null)
+            try
             {
                 ctx.Usuarios.Add(u);
                 ctx.SaveChanges();
-
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
+
+
 
         public static Usuario BuscarUsuarioPorLogin(int Login)
         {
             return ctx.Usuarios.Find(Login);
         }
 
-        public static Usuario ValidarLogin(Usuario u)
+        public static bool ValidarLogin(Usuario u)
         {
             var login = ctx.Usuarios.Where(x => x.Login == u.Login && x.Senha == u.Senha).FirstOrDefault();
 
-            return login;
+            return login != null;
+        }
+
+        public static List<Usuario> ListarUsuarios()
+        {
+            return ctx.Usuarios.ToList();
         }
 
 

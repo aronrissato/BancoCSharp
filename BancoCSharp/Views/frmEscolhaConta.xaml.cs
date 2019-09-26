@@ -1,4 +1,5 @@
 ﻿using BancoCSharp.DAL;
+using BancoCSharp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,9 @@ namespace BancoCSharp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cboConta.ItemsSource = ContaDAO.ListarContas();
-            cboConta.DisplayMemberPath = "DigConta";
-            cboConta.SelectedValuePath = "DigConta";
+            cboContas.ItemsSource = ContaDAO.ListarContas();
+            cboContas.DisplayMemberPath = "DigConta";
+            cboContas.SelectedValuePath = "DigConta";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,5 +38,7 @@ namespace BancoCSharp.Views
             frmOperacoes operacoes = new frmOperacoes();
             operacoes.ShowDialog();
         }
+
+
     }
 }

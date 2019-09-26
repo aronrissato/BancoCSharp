@@ -37,7 +37,7 @@ namespace BancoCSharp.Views
 
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            Usuario u = new Usuario
+            Usuario usuario = new Usuario
             {
                 Login = txtLogin.Text,
                 Senha = pswSenha.Password
@@ -45,19 +45,27 @@ namespace BancoCSharp.Views
 
             if (pswRepitaSenha.Password != pswSenha.Password)
             {
-                MessageBox.Show("Senha digitada não confere com a confirmação da senha","BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Senha digitada não confere com a confirmação da senha", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                 LimparFormulario();
             }
             else
             {
-                u = UsuarioDAO.BuscarUsuarioPorLogin(u);
+                var isExisted = UsuarioDAO.BuscarUsuarioPorLogin(usuario);
 
-                if (u != null)
+                if (isExisted == null)
                 {
-                    txtLogin.Text = u.Login;
-                    pswSenha.Password = u.Senha;
+                    bool result = UsuarioDAO.CadastrarUsuario(usuario);
 
-                    MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (result)
+                    {
+                        MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao cadastrar usuario!", "BancoCSharp");
+                    }
+
                     LimparFormulario();
                 }
                 else

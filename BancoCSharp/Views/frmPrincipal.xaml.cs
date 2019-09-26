@@ -1,4 +1,6 @@
-﻿using BancoCSharp.Views;
+﻿using BancoCSharp.DAL;
+using BancoCSharp.Models;
+using BancoCSharp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,11 +39,26 @@ namespace BancoCSharp
 
         private void BtnRealizarLogin_Click(object sender, RoutedEventArgs e)
         {
+            Usuario usuario = new Usuario
+            {
+                Login = txtLogin.Text,
+                Senha = pswSenha.Password
+            };
+
+            bool isExisted = UsuarioDAO.ValidarLogin(usuario);
+
+            if (isExisted)
+            {
+                frmEscolhaConta contas = new frmEscolhaConta();
+                contas.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usuario não encontrado!", "BancoCSharp", MessageBoxButton.OK);
+            }
+
+
             
-
-
-            frmEscolhaConta contas = new frmEscolhaConta();
-            contas.ShowDialog();
         }
 
 

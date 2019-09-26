@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BancoCSharp.Views"
         mc:Ignorable="d"
-        Title="frmEscolhaConta" Height="152.5" Width="487.5" Loaded="Window_Loaded">
+        Title="frmEscolhaConta" Height="449.5" Width="489.5" Loaded="Window_Loaded">
     <Grid>
-        <Label x:Name="txtConta" Content="Escolha a conta que deseja acessar" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Height="26" Width="202"/>
-        <ComboBox x:Name="cboConta" HorizontalAlignment="Left" Margin="115,49,0,0" VerticalAlignment="Top" Width="188"/>
-        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="306,81,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="txtConta" Content="Escolha a conta que deseja acessar" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="26" Width="202"/>
+        <ComboBox x:Name="cboContas" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="137,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btnNovaConta" Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="325,370,0,0" VerticalAlignment="Top" Width="131"/>
+        <Label Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" Width="202"/>
 
     </Grid>
 </Window>
