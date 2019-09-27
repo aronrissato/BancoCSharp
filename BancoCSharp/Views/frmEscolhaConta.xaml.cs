@@ -26,6 +26,13 @@ namespace BancoCSharp.Views
             InitializeComponent();
         }
 
+        public void LimparFormulario()
+        {
+            txtNovaConta.Clear();
+            txtNovaConta.Focus();
+        }
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cboContas.ItemsSource = ContaDAO.ListarContas();
@@ -39,6 +46,36 @@ namespace BancoCSharp.Views
             operacoes.ShowDialog();
         }
 
+        private void TxtNovaConta_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtNovaConta.SelectionLength < 6)
+            {
+                MessageBox.Show("Nova conta requer no mínimo 6 digitos.");
+            }
+            else
+            {
+                Conta conta = new Conta
+                {
+                    DigConta = Convert.ToInt32(txtNovaConta.Text)
+                };
 
+                var isExisted = ContaDAO.BuscarContaPorDigConta(conta);
+
+                if (isExisted == null)
+                {
+                    bool result = ContaDAO.CadastrarConta(conta);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
+                    }
+                    LimparFormulario();
+                }
+            }
+        }
     }
 }

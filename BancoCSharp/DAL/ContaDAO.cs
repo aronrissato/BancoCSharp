@@ -17,13 +17,16 @@ namespace BancoCSharp.DAL
 
         public static bool CadastrarConta(Conta c)
         {
-            if (BuscarContaPorDigConta(c) == null)
+            try
             {
                 ctx.Contas.Add(c);
                 ctx.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public static List<Conta> ListarContas()

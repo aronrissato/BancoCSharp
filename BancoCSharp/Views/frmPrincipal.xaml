@@ -8,9 +8,9 @@
         Title="Bem vindo!" Height="450" Width="800" ScrollViewer.VerticalScrollBarVisibility="Disabled">
     <Grid RenderTransformOrigin="0.503,0.487">
         <Label Content="Bem vindo ao&#xD;&#xA;&#x9;         Banco CSharp" HorizontalAlignment="Left" Margin="36,36,0,0" VerticalAlignment="Top" Height="52" Width="200" FontSize="15"/>
-        <Button x:Name="btnRealizarLogin" Content="Entrar" HorizontalAlignment="Left" Margin="321,232,0,0" VerticalAlignment="Top" Width="84" Height="21" FontSize="14" Click="BtnRealizarLogin_Click" />
-        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="22" Margin="306,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="pswSenha" HorizontalAlignment="Left" Height="24" Margin="306,182,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnRealizarLogin" Content="Entrar" HorizontalAlignment="Left" Margin="321,232,0,0" VerticalAlignment="Top" Width="84" Height="21" FontSize="14" Click="BtnRealizarLogin_Click" TabIndex="3" />
+        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="22" Margin="306,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TabIndex="1"/>
+        <PasswordBox x:Name="pswSenha" HorizontalAlignment="Left" Height="24" Margin="306,182,0,0" VerticalAlignment="Top" Width="120" TabIndex="2" />
         <Label Content="Login:" HorizontalAlignment="Left" Margin="306,84,0,0" VerticalAlignment="Top" Width="84" FontSize="15"/>
         <Label Content="Senha:" HorizontalAlignment="Left" Margin="306,156,0,0" VerticalAlignment="Top" Width="73" FontSize="15"/>
         <Label x:Name="lableCadastro" Content="Ainda não possui um login?" HorizontalAlignment="Left" Margin="306,284,0,0" VerticalAlignment="Top" Height="20" Width="142" Padding="1" FontStretch="UltraExpanded" FontStyle="Italic" FontWeight="ExtraLight" />

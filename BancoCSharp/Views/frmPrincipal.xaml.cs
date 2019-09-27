@@ -28,6 +28,14 @@ namespace BancoCSharp
             InitializeComponent();
         }
 
+        public void LimparFormulario()
+        {
+            txtLogin.Clear();
+            pswSenha.Clear();
+
+            txtLogin.Focus();
+        }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente sair?", "BancoCSharp", MessageBoxButton.YesNo,
@@ -50,11 +58,13 @@ namespace BancoCSharp
             if (isExisted)
             {
                 frmEscolhaConta contas = new frmEscolhaConta();
+                LimparFormulario();
                 contas.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Usuario não encontrado!", "BancoCSharp", MessageBoxButton.OK);
+                LimparFormulario();
             }
 
 

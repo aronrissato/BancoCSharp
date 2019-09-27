@@ -37,6 +37,8 @@ namespace BancoCSharp.Views
 
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
+            var Dados = new frmAtualizarDadosCliente(txtLogin.Text);
+
             Usuario usuario = new Usuario
             {
                 Login = txtLogin.Text,

@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BancoCSharp.Views"
         mc:Ignorable="d"
-        Title="frmEscolhaConta" Height="449.5" Width="489.5" Loaded="Window_Loaded">
+        Title="frmEscolhaConta" Height="294.5" Width="283" Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Label x:Name="txtConta" Content="Escolha a conta que deseja acessar" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="26" Width="202"/>
-        <ComboBox x:Name="cboContas" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="202"/>
-        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="137,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button x:Name="btnNovaConta" Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="325,370,0,0" VerticalAlignment="Top" Width="131"/>
-        <Label Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" Width="202"/>
+        <Label Content="Escolha a conta que deseja acessar" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top" Height="26" Width="236" FontSize="14"/>
+        <ComboBox x:Name="cboContas" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="247"/>
+        <Button x:Name="btnSelecConta" Content="Confirmar" HorizontalAlignment="Left" Margin="164,71,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
+        <Button x:Name="btnCriaConta" Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="126,225,0,0" VerticalAlignment="Top" Width="131"/>
+        <Label Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="5,132,0,0" VerticalAlignment="Top" Width="202" FontSize="14"/>
+        <Label Content="Informe 6 digitos para a nova conta:" HorizontalAlignment="Left" Margin="5,166,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNovaConta" HorizontalAlignment="Left" Height="23" Margin="5,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" TextChanged="TxtNovaConta_TextChanged"/>
+        <Label Content="__________________________________________________" HorizontalAlignment="Left" Margin="5,106,0,0" VerticalAlignment="Top" Width="153"/>
+        <Label Content="__________________________________________________" HorizontalAlignment="Left" Margin="115,106,0,0" VerticalAlignment="Top" Width="152"/>
 
     </Grid>
 </Window>

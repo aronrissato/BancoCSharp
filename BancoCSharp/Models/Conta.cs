@@ -11,6 +11,7 @@ namespace BancoCSharp.Models
         public Conta() 
         {
             CriadoEm = DateTime.Now;
+            Saldo = 0;
         }
 
 
