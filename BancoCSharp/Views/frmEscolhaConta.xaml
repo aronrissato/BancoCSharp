@@ -9,11 +9,11 @@
     <Grid>
         <Label Content="Escolha a conta que deseja acessar" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top" Height="26" Width="236" FontSize="14"/>
         <ComboBox x:Name="cboContas" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="247"/>
-        <Button x:Name="btnSelecConta" Content="Confirmar" HorizontalAlignment="Left" Margin="164,71,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
-        <Button x:Name="btnCriaConta" Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="126,225,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button x:Name="btnSelecConta" Content="Confirmar" HorizontalAlignment="Left" Margin="164,71,0,0" VerticalAlignment="Top" Width="93"/>
+        <Button x:Name="btnCriaConta" Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="126,225,0,0" VerticalAlignment="Top" Width="131" Click="BtnCriaConta_Click"/>
         <Label Content="Cadastrar nova conta" HorizontalAlignment="Left" Margin="5,132,0,0" VerticalAlignment="Top" Width="202" FontSize="14"/>
         <Label Content="Informe 6 digitos para a nova conta:" HorizontalAlignment="Left" Margin="5,166,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNovaConta" HorizontalAlignment="Left" Height="23" Margin="5,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" TextChanged="TxtNovaConta_TextChanged"/>
+        <TextBox x:Name="txtNovaConta" HorizontalAlignment="Left" Height="23" Margin="5,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252"/>
         <Label Content="__________________________________________________" HorizontalAlignment="Left" Margin="5,106,0,0" VerticalAlignment="Top" Width="153"/>
         <Label Content="__________________________________________________" HorizontalAlignment="Left" Margin="115,106,0,0" VerticalAlignment="Top" Width="152"/>
 

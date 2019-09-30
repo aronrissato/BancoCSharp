@@ -47,7 +47,5 @@ namespace BancoCSharp.DAL
         {
             return ctx.Usuarios.ToList();
         }
-
-
     }
 }

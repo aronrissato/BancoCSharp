@@ -24,9 +24,20 @@ namespace BancoCSharp.Views
         public frmCadastrarUsuario()
         {
             InitializeComponent();
+            txtCriadoEm.Text = DateTime.Now.ToString();
         }
 
-        public void LimparFormulario()
+        public void LimparFormularioCliente()
+        {
+            txtCpf.Clear();
+            txtCriadoEm.Clear();
+            txtEndereco.Clear();
+            txtNomeCliente.Clear();
+
+            txtLogin.Focus();
+        }
+
+        public void LimparFormularioUsuario()
         {
             txtLogin.Clear();
             pswSenha.Clear();
@@ -35,10 +46,11 @@ namespace BancoCSharp.Views
             txtLogin.Focus();
         }
 
+
+
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            var Dados = new frmAtualizarDadosCliente(txtLogin.Text);
-
+            //Cadastro de usuario
             Usuario usuario = new Usuario
             {
                 Login = txtLogin.Text,
@@ -48,7 +60,7 @@ namespace BancoCSharp.Views
             if (pswRepitaSenha.Password != pswSenha.Password)
             {
                 MessageBox.Show("Senha digitada não confere com a confirmação da senha", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
-                LimparFormulario();
+                LimparFormularioUsuario();
             }
             else
             {
@@ -56,24 +68,53 @@ namespace BancoCSharp.Views
 
                 if (isExisted == null)
                 {
-                    bool result = UsuarioDAO.CadastrarUsuario(usuario);
-
-                    if (result)
+                    Cliente cliente = new Cliente
                     {
-                        MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Cpf = txtCpf.Text,
+                        Nome = txtNomeCliente.Text,
+                        Endereco = txtEndereco.Text,
+                        DataNascimento = dtoNascimento.SelectedDate.Value,
+                        UsuarioId = usuario
+                    };
 
+                    var isCpfExisted = ClienteDAO.BuscarClientePorCpf(cliente);
+
+
+                    if (isCpfExisted == null)
+                    {
+                        bool result = UsuarioDAO.CadastrarUsuario(usuario);
+
+
+                        if (result)
+                        {
+                            bool resultCliente = ClienteDAO.CadastrarCliente(cliente);
+
+                            if (resultCliente)
+                            {
+                                MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao cadastrar cliente!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao cadastrar usuario!", "BancoCSharp");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao cadastrar usuario!", "BancoCSharp");
+                        MessageBox.Show("CPF informado já está vinculado com outro cliente.", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
-                    LimparFormulario();
+                    LimparFormularioUsuario();
+                    LimparFormularioCliente();
                 }
                 else
                 {
                     MessageBox.Show("Usuário já cadastrado!", "BancoCSharp");
-                    LimparFormulario();
+                    LimparFormularioCliente();
                 }
             }
         }

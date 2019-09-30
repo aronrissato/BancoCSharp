@@ -33,10 +33,5 @@ namespace BancoCSharp.DAL
         {
             return ctx.Contas.ToList();
         }
-
-        public static Conta BuscarContaPorDigConta(int DigConta)
-        {
-            return ctx.Contas.Find(DigConta);
-        }
     }
 }

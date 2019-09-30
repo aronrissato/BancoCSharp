@@ -62,10 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\frmAtualizarDadosCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\frmCadastrarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,9 +98,6 @@
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Operacao.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Views\frmAtualizarDadosCliente.xaml.cs">
-      <DependentUpon>frmAtualizarDadosCliente.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\frmCadastrarUsuario.xaml.cs">
       <DependentUpon>frmCadastrarUsuario.xaml</DependentUpon>
     </Compile>

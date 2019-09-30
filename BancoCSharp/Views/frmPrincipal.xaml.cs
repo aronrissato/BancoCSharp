@@ -19,11 +19,11 @@ using System.Windows.Shapes;
 namespace BancoCSharp
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para frmPrincipal.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class frmPrincipal : Window
     {
-        public MainWindow()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
@@ -57,46 +57,22 @@ namespace BancoCSharp
 
             if (isExisted)
             {
-                frmEscolhaConta contas = new frmEscolhaConta();
+                frmOperacoes operacoes = new frmOperacoes(this);
+                operacoes.ShowDialog();
                 LimparFormulario();
-                contas.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Usuario não encontrado!", "BancoCSharp", MessageBoxButton.OK);
                 LimparFormulario();
             }
-
-
-            
         }
-
-
-
-
-
-
-
-        //private void NovoUsuario()
-        //{ 
-        //TextBlock tb = new TextBlock();
-        //var hp = new Hyperlink(new Run("error"));
-        //hp.Click += (s, e) => { /* do something */ };
-        //}
+        
 
         private void BtnNovaConta_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarUsuario u = new frmCadastrarUsuario();
             u.ShowDialog();
         }
-        
-
-        //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-        //    MessageBox.Show("you have clicked a link label");
-        //    //or whatever action you want it to do.
-        //}
-
-
     }
 }

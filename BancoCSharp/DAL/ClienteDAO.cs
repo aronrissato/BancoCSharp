@@ -18,19 +18,39 @@ namespace BancoCSharp.DAL
 
         public static bool CadastrarCliente(Cliente c)
         {
-            if (BuscarClientePorCpf(c) == null)
+            try
             {
                 ctx.Clientes.Add(c);
                 ctx.SaveChanges();
-
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
-        public static Cliente BuscarClientePorCpf(int Cpf)
+        public static int BuscarClientePorUsuario(int id)
         {
-            return ctx.Clientes.Find(Cpf);
+            var usuarioid = ctx.Clientes.FirstOrDefault(x => x.UsuarioId.Equals(id));
+            int clienteid = usuarioid.Id;
+
+            return clienteid;
+        }
+
+
+        public static Usuario ConsultaBanco(string login)
+        {
+            var RetornaUsuario = ctx.Usuarios.SqlQuery("Select id from Usuario Where login = '" + login + "'").FirstOrDefault();
+            return RetornaUsuario;
+
+        }
+
+        public static Cliente ConsultaClientePorLogin(string login)
+        {
+            var RetornaClienteId = ctx.Clientes.SqlQuery("select c.id from Cliente c inner join Usuario u on c.UsuarioId_id = u.id where u.login like '%"+login+"%'").FirstOrDefault();
+            return RetornaClienteId;
+
         }
 
     }

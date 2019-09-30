@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BancoCSharp.DAL;
+using BancoCSharp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,26 @@ namespace BancoCSharp.Views
     /// </summary>
     public partial class frmOperacoes : Window
     {
-        public frmOperacoes()
+        frmPrincipal home;
+
+        public frmOperacoes(frmPrincipal principal)
         {
             InitializeComponent();
+            home = principal;
+
+        }
+
+
+        public void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var id = home.txtLogin.Text;
+
+            Cliente teste = ClienteDAO.ConsultaClientePorLogin(id);
+
+            lblBemVindo.Content = "Bem-vindo!" + teste.Nome;
+
+
+            //lblSaldo.Content = "Saldo: " +
         }
 
 

@@ -42,40 +42,37 @@ namespace BancoCSharp.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            frmOperacoes operacoes = new frmOperacoes();
-            operacoes.ShowDialog();
+            //frmOperacoes operacoes = new frmOperacoes();
+            //operacoes.ShowDialog();
         }
 
-        private void TxtNovaConta_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void BtnCriaConta_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNovaConta.SelectionLength < 6)
+            Conta conta = new Conta
             {
-                MessageBox.Show("Nova conta requer no mínimo 6 digitos.");
-            }
-            else
+                DigConta = Convert.ToInt32(txtNovaConta.Text)
+            };
+
+
+
+            var isExisted = ContaDAO.BuscarContaPorDigConta(conta);
+
+            if (isExisted == null)
             {
-                Conta conta = new Conta
+                bool result = ContaDAO.CadastrarConta(conta);
+
+                if (result)
                 {
-                    DigConta = Convert.ToInt32(txtNovaConta.Text)
-                };
-
-                var isExisted = ContaDAO.BuscarContaPorDigConta(conta);
-
-                if (isExisted == null)
-                {
-                    bool result = ContaDAO.CadastrarConta(conta);
-
-                    if (result)
-                    {
-                        MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
-                    }
-                    LimparFormulario();
+                    MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
                 }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
+                }
+                LimparFormulario();
             }
+
         }
     }
 }

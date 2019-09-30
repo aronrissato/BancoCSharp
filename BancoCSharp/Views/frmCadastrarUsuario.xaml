@@ -5,15 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BancoCSharp.Views"
         mc:Ignorable="d"
-        Title="frmCadastrarUsuario" Height="262.333" Width="462">
+        Title="frmCadastrarUsuario" Height="519.333" Width="473">
     <Grid>
-        <Label Content="Digite seu login:" HorizontalAlignment="Left" Margin="14,20,0,0" VerticalAlignment="Top"/>
-        <Label Content="Digite sua senha:" HorizontalAlignment="Left" Margin="14,70,0,0" VerticalAlignment="Top"/>
-        <Label Content="Digite novamente sua senha:" HorizontalAlignment="Left" Margin="14,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="Digite seu login:" HorizontalAlignment="Left" Margin="14,20,0,0" VerticalAlignment="Top" FontWeight="SemiBold"/>
+        <Label Content="Digite sua senha:" HorizontalAlignment="Left" Margin="14,70,0,0" VerticalAlignment="Top" FontWeight="SemiBold"/>
+        <Label Content="Digite novamente sua senha:" HorizontalAlignment="Left" Margin="14,124,0,0" VerticalAlignment="Top" FontWeight="SemiBold"/>
         <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="22" Margin="182,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
         <PasswordBox x:Name="pswSenha" HorizontalAlignment="Left" Height="23" Margin="182,73,0,0" VerticalAlignment="Top" Width="244"/>
         <PasswordBox x:Name="pswRepitaSenha" HorizontalAlignment="Left" Height="23" Margin="182,124,0,0" VerticalAlignment="Top" Width="244"/>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="351,184,0,0" VerticalAlignment="Top" Width="75" Click="BtnCadastrar_Click"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="351,449,0,0" VerticalAlignment="Top" Width="75" Click="BtnCadastrar_Click"/>
+        <Label Content="Informações pessoais" HorizontalAlignment="Left" Margin="14,222,0,0" VerticalAlignment="Top" Height="33" Width="163" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txtCpf" HorizontalAlignment="Left" Height="23" Margin="182,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+        <TextBox x:Name="txtNomeCliente" HorizontalAlignment="Left" Height="23" Margin="182,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+        <TextBox x:Name="txtEndereco" HorizontalAlignment="Left" Height="23" Margin="182,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+        <Label Content="CPF:" HorizontalAlignment="Left" Margin="14,255,0,0" VerticalAlignment="Top" FontWeight="SemiBold"/>
+        <Label Content="Nome:" HorizontalAlignment="Left" Margin="14,304,0,0" VerticalAlignment="Top" FontWeight="SemiBold"/>
+        <Label Content="Data de nascimento:" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Height="24"/>
+        <Label Content="Endereço:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,350,0,0" FontWeight="SemiBold"/>
+        <DatePicker x:Name="dtoNascimento" HorizontalAlignment="Left" Margin="182,398,0,0" VerticalAlignment="Top" Width="244"/>
+        <Label Content="Criado em:" HorizontalAlignment="Left" Margin="14,171,0,0" VerticalAlignment="Top" FontWeight="SemiBold"/>
+        <TextBox x:Name="txtCriadoEm" HorizontalAlignment="Left" Height="23" Margin="182,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" IsEnabled="False" IsTabStop="False"/>
 
     </Grid>
 </Window>
