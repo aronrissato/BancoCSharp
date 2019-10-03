@@ -82,25 +82,15 @@ namespace BancoCSharp.Views
 
                     if (isCpfExisted == null)
                     {
-                        bool result = UsuarioDAO.CadastrarUsuario(usuario);
+                        bool resultCliente = ClienteDAO.CadastrarCliente(cliente);
 
-
-                        if (result)
+                        if (resultCliente)
                         {
-                            bool resultCliente = ClienteDAO.CadastrarCliente(cliente);
-
-                            if (resultCliente)
-                            {
-                                MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Erro ao cadastrar cliente!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
+                            MessageBox.Show("Usuário cadastrado com sucesso!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Erro ao cadastrar usuario!", "BancoCSharp");
+                            MessageBox.Show("Erro ao cadastrar cliente!", "Banco CSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else

@@ -21,28 +21,35 @@ namespace BancoCSharp.Views
     /// </summary>
     public partial class frmOperacoes : Window
     {
-        frmPrincipal home;
+        int usuarioId;
 
-        public frmOperacoes(frmPrincipal principal)
+        public frmOperacoes(int id)
         {
             InitializeComponent();
-            home = principal;
-
+            usuarioId = id;
         }
 
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var id = home.txtLogin.Text;
+            var clienteId = ClienteDAO.BuscarClientePorUsuario(usuarioId);
+            Cliente cliente = ClienteDAO.BuscarClientePorUsuarioId(usuarioId);
 
-            Cliente teste = ClienteDAO.ConsultaClientePorLogin(id);
+            frmEscolhaConta conta = new frmEscolhaConta(cliente.Id);
+            conta.ShowDialog();
 
-            lblBemVindo.Content = "Bem-vindo!" + teste.Nome;
+            //TRAZ O OBJETO CLIENTE AQUI E PEGA O NOME PRA MOSTRAR NO CONTENT LBLBEMVINDO
+
+            lblBemVindo.Content = "Bem-vindo! " + cliente.Nome;
 
 
             //lblSaldo.Content = "Saldo: " +
         }
 
-
+        private void BtnSaque_Click(object sender, RoutedEventArgs e)
+        {
+            frmSaque saque = new frmSaque();
+            saque.ShowDialog();
+        }
     }
 }

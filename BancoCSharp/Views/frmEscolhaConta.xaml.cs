@@ -21,9 +21,12 @@ namespace BancoCSharp.Views
     /// </summary>
     public partial class frmEscolhaConta : Window
     {
-        public frmEscolhaConta()
+        int clienteId;
+
+        public frmEscolhaConta(int id)
         {
             InitializeComponent();
+            clienteId = id;
         }
 
         public void LimparFormulario()
@@ -35,7 +38,7 @@ namespace BancoCSharp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cboContas.ItemsSource = ContaDAO.ListarContas();
+            cboContas.ItemsSource = ContaDAO.ListarContas(clienteId);
             cboContas.DisplayMemberPath = "DigConta";
             cboContas.SelectedValuePath = "DigConta";
         }
@@ -49,13 +52,14 @@ namespace BancoCSharp.Views
 
         private void BtnCriaConta_Click(object sender, RoutedEventArgs e)
         {
+            var cliente = ClienteDAO.BuscarClientePorId(clienteId);
+
             Conta conta = new Conta
             {
-                DigConta = Convert.ToInt32(txtNovaConta.Text)
+                DigConta = Convert.ToInt32(txtNovaConta.Text),
+                ClienteId = cliente
             };
-
-
-
+            
             var isExisted = ContaDAO.BuscarContaPorDigConta(conta);
 
             if (isExisted == null)
@@ -65,6 +69,9 @@ namespace BancoCSharp.Views
                 if (result)
                 {
                     MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
+                    cboContas.ItemsSource = ContaDAO.ListarContas(clienteId);
+                    cboContas.DisplayMemberPath = "DigConta";
+                    cboContas.SelectedValuePath = "DigConta";
                 }
                 else
                 {

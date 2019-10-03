@@ -53,11 +53,11 @@ namespace BancoCSharp
                 Senha = pswSenha.Password
             };
 
-            bool isExisted = UsuarioDAO.ValidarLogin(usuario);
+            var login = UsuarioDAO.ValidarLogin(usuario);
 
-            if (isExisted)
+            if (login != null)
             {
-                frmOperacoes operacoes = new frmOperacoes(this);
+                frmOperacoes operacoes = new frmOperacoes(login.Id);
                 operacoes.ShowDialog();
                 LimparFormulario();
             }

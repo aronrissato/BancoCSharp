@@ -7,9 +7,9 @@
         Title="frmOperacoes" Height="450" Width="839" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Escolha a operação que deseja realizar:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" Height="36" Width="308" FontSize="17"/>
-        <Label x:Name="lblBemVindo" Content="Bem-vindo," HorizontalAlignment="Left" Margin="36,28,0,0" VerticalAlignment="Top" Height="41" Width="158" FontSize="15"/>
+        <Label x:Name="lblBemVindo" Content="Bem-vindo," HorizontalAlignment="Left" Margin="36,28,0,0" VerticalAlignment="Top" Height="41" Width="501" FontSize="15"/>
         <Label x:Name="lblSaldo" Content="SALDO: " HorizontalAlignment="Left" Margin="582,10,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Button x:Name="btnSaque" Content="Saque" HorizontalAlignment="Left" Margin="36,120,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
+        <Button x:Name="btnSaque" Content="Saque" HorizontalAlignment="Left" Margin="36,120,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="BtnSaque_Click"/>
         <Button x:Name="btnDeposito" Content="Depósito" HorizontalAlignment="Left" Margin="36,174,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
         <Button x:Name="btnBoleto" Content="Boletos" HorizontalAlignment="Left" Margin="36,284,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
         <Button x:Name="btnTransferencia" Content="Transferência" HorizontalAlignment="Left" Margin="36,230,0,0" VerticalAlignment="Top" Width="202" Height="50"/>

@@ -10,6 +10,7 @@ namespace BancoCSharp.DAL
     class UsuarioDAO
     {
         private static Context ctx = new Context();
+
         public static Usuario BuscarUsuarioPorLogin(Usuario u)
         {
             return ctx.Usuarios.FirstOrDefault(x => x.Login.Equals(u.Login));
@@ -36,11 +37,11 @@ namespace BancoCSharp.DAL
             return ctx.Usuarios.Find(Login);
         }
 
-        public static bool ValidarLogin(Usuario u)
+        public static Usuario ValidarLogin(Usuario u)
         {
             var login = ctx.Usuarios.Where(x => x.Login == u.Login && x.Senha == u.Senha).FirstOrDefault();
 
-            return login != null;
+            return login;
         }
 
         public static List<Usuario> ListarUsuarios()
