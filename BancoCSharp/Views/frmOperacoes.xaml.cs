@@ -29,27 +29,93 @@ namespace BancoCSharp.Views
             usuarioId = id;
         }
 
+        public void LimparCadastroConta()
+        {
+            txtNovaConta.Clear();
+        }
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var clienteId = ClienteDAO.BuscarClientePorUsuario(usuarioId);
             Cliente cliente = ClienteDAO.BuscarClientePorUsuarioId(usuarioId);
 
-            frmEscolhaConta conta = new frmEscolhaConta(cliente.Id);
-            conta.ShowDialog();
-
-            //TRAZ O OBJETO CLIENTE AQUI E PEGA O NOME PRA MOSTRAR NO CONTENT LBLBEMVINDO
+            //frmEscolhaConta conta = new frmEscolhaConta(cliente.Id);
+            //conta.ShowDialog();
 
             lblBemVindo.Content = "Bem-vindo! " + cliente.Nome;
+            cboConta.ItemsSource = ClienteDAO.ListarContas(clienteId);
+            cboConta.DisplayMemberPath = "DigConta";
+            cboConta.SelectedValuePath = "DigConta";
+            
+        }
 
+        private void BtnSalvarConta_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = ClienteDAO.BuscarClientePorUsuarioId(usuarioId);
 
-            //lblSaldo.Content = "Saldo: " +
+            Conta conta = new Conta
+            {
+                DigConta = Convert.ToInt32(txtNovaConta.Text),
+                ClienteId = cliente
+            };
+
+            var isExisted = ClienteDAO.BuscarContaPorDigConta(conta);
+
+            if (isExisted == null)
+            {
+                bool result = ClienteDAO.CadastrarConta(conta);
+
+                if (result)
+                {
+                    MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
+                    cboConta.ItemsSource = ClienteDAO.ListarContas(cliente.Id);
+                    cboConta.DisplayMemberPath = "DigConta";
+                    cboConta.SelectedValuePath = "DigConta";
+                    LimparCadastroConta();
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
+                    LimparCadastroConta();
+                }
+            }
         }
 
         private void BtnSaque_Click(object sender, RoutedEventArgs e)
         {
-            frmSaque saque = new frmSaque();
+            int op_digConta = Convert.ToInt32(cboConta.SelectedValue);
+            var clienteId = ClienteDAO.BuscarClientePorUsuario(usuarioId);
+
+            frmSaque saque = new frmSaque(op_digConta, clienteId);
             saque.ShowDialog();
+        }
+
+        private void BtnDeposito_Click(object sender, RoutedEventArgs e)
+        {
+            int op_digConta = Convert.ToInt32(cboConta.SelectedValue);
+            var clienteId = ClienteDAO.BuscarClientePorUsuario(usuarioId);
+
+            frmDeposito deposito = new frmDeposito(op_digConta, clienteId);
+            deposito.ShowDialog();
+
+        }
+
+        private void BtnTransferencia_Click(object sender, RoutedEventArgs e)
+        {
+            int op_digConta = Convert.ToInt32(cboConta.SelectedValue);
+            var clienteId = ClienteDAO.BuscarClientePorUsuario(usuarioId);
+
+            frmTransferencia transferencia = new frmTransferencia(op_digConta, clienteId);
+            transferencia.ShowDialog();
+        }
+
+        private void BtnBoleto_Click(object sender, RoutedEventArgs e)
+        {
+            int op_digConta = Convert.ToInt32(cboConta.SelectedValue);
+            var clienteId = ClienteDAO.BuscarClientePorUsuario(usuarioId);
+
+            frmBoletos boletos = new frmBoletos(op_digConta, clienteId);
+            boletos.ShowDialog();
         }
     }
 }

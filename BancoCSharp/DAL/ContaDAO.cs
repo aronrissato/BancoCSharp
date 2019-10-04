@@ -1,4 +1,5 @@
 ﻿using BancoCSharp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,6 +14,14 @@ namespace BancoCSharp.DAL
             return ctx.Contas.FirstOrDefault(x => x.DigConta.Equals(c.DigConta));
         }
 
+        public static Conta BuscarContaIdPorDigConta(int DigConta)
+        {
+            var conta = ctx.Contas.Where(x => x.DigConta.Equals(DigConta)).FirstOrDefault();
+
+            return conta;
+        }
+
+
         public static bool CadastrarConta(Conta c)
         {
             try
@@ -22,7 +31,7 @@ namespace BancoCSharp.DAL
                 ctx.SaveChanges();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }
@@ -31,28 +40,6 @@ namespace BancoCSharp.DAL
         public static List<Conta> ListarContas(int clienteId)
         {
             return ctx.Contas.Where(x => x.ClienteId.Id.Equals(clienteId)).ToList();
-        }
-
-        public static bool RealizaSaque(Conta conta, int valorSaque)
-        {
-            var objConta = BuscarContaPorDigConta(conta);
-
-            if (objConta != null)
-            {
-                if (objConta.Saldo >= valorSaque)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-            else
-            {
-                return false;
-            }
         }
 
 

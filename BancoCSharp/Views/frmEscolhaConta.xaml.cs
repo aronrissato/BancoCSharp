@@ -43,43 +43,50 @@ namespace BancoCSharp.Views
             cboContas.SelectedValuePath = "DigConta";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //frmOperacoes operacoes = new frmOperacoes();
-            //operacoes.ShowDialog();
-        }
-
 
         private void BtnCriaConta_Click(object sender, RoutedEventArgs e)
         {
-            var cliente = ClienteDAO.BuscarClientePorId(clienteId);
-
-            Conta conta = new Conta
+            if (Convert.ToInt32(txtNovaConta.Text) == 6)
             {
-                DigConta = Convert.ToInt32(txtNovaConta.Text),
-                ClienteId = cliente
-            };
-            
-            var isExisted = ContaDAO.BuscarContaPorDigConta(conta);
+                var cliente = ClienteDAO.BuscarClientePorId(clienteId);
 
-            if (isExisted == null)
-            {
-                bool result = ContaDAO.CadastrarConta(conta);
+                Conta conta = new Conta
+                {
+                    DigConta = Convert.ToInt32(txtNovaConta.Text),
+                    ClienteId = cliente
+                };
 
-                if (result)
+                var isExisted = ContaDAO.BuscarContaPorDigConta(conta);
+
+                if (isExisted == null)
                 {
-                    MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
-                    cboContas.ItemsSource = ContaDAO.ListarContas(clienteId);
-                    cboContas.DisplayMemberPath = "DigConta";
-                    cboContas.SelectedValuePath = "DigConta";
+                    bool result = ContaDAO.CadastrarConta(conta);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
+                        cboContas.ItemsSource = ContaDAO.ListarContas(clienteId);
+                        cboContas.DisplayMemberPath = "DigConta";
+                        cboContas.SelectedValuePath = "DigConta";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
+                    }
+                    LimparFormulario();
                 }
-                else
-                {
-                    MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
-                }
-                LimparFormulario();
             }
-
+            else
+            {
+                MessageBox.Show("A conta deve ter somente 6 digitos", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
     }
 }

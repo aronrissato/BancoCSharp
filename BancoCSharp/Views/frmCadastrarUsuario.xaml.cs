@@ -33,6 +33,8 @@ namespace BancoCSharp.Views
             txtCriadoEm.Clear();
             txtEndereco.Clear();
             txtNomeCliente.Clear();
+            dtoNascimento.SelectedDate = null;
+            //dtoNascimento.DisplayDate = DateTime.Today;
 
             txtLogin.Focus();
         }
@@ -68,6 +70,8 @@ namespace BancoCSharp.Views
 
                 if (isExisted == null)
                 {
+                    UsuarioDAO.CadastrarUsuario(usuario);
+
                     Cliente cliente = new Cliente
                     {
                         Cpf = txtCpf.Text,

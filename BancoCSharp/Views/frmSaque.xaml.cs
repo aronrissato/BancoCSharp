@@ -21,35 +21,38 @@ namespace BancoCSharp.Views
     /// </summary>
     public partial class frmSaque : Window
     {
-        public frmSaque()
+        int sq_DigConta;
+        int cliente;
+
+        public frmSaque(int op_digConta, int clienteId)
         {
             InitializeComponent();
+            sq_DigConta = op_digConta;
+            cliente = clienteId;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void LimparCampos()
         {
-            cboContaSaque.ItemsSource = ContaDAO.ListarContas(0);
+            txtValorSaque.Clear();
+            txtValorSaque.Focus();
         }
-
 
         private void BtnEnviaSaque_Click(object sender, RoutedEventArgs e)
         {
-            Conta conta = new Conta
-            {
-                Id = Convert.ToInt32(cboContaSaque.SelectedValue)
-            };
-
+            Conta conta = ContaDAO.BuscarContaIdPorDigConta(sq_DigConta);
             int valorSaque = Convert.ToInt32(txtValorSaque.Text);
 
-            var operacao = ContaDAO.RealizaSaque(conta, valorSaque);
+            var operacao = OperacaoDAO.RealizaSaque(conta, valorSaque);
 
             if (operacao == true)
             {
                 MessageBox.Show("Saque realizado! Retire o montante em qualquer agência.", "BancoCSharp", MessageBoxButton.OK);
+                LimparCampos();
             }
             else
             {
                 MessageBox.Show("Ocorreu um erro ao realizar seu saque. Verifique seu saldo!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
+                LimparCampos();
             }
         }
     }

@@ -4,31 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BancoCSharp.Views"
-        Title="frmOperacoes" Height="450" Width="839" Loaded="Window_Loaded">
+        Title="frmOperacoes" Height="621" Width="839" Loaded="Window_Loaded">
     <Grid>
-        <Label Content="Escolha a operação que deseja realizar:" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" Height="36" Width="308" FontSize="17"/>
+        <Label Content="Escolha a operação que deseja realizar:" HorizontalAlignment="Left" Margin="36,186,0,0" VerticalAlignment="Top" Height="36" Width="308" FontSize="17"/>
         <Label x:Name="lblBemVindo" Content="Bem-vindo," HorizontalAlignment="Left" Margin="36,28,0,0" VerticalAlignment="Top" Height="41" Width="501" FontSize="15"/>
-        <Label x:Name="lblSaldo" Content="SALDO: " HorizontalAlignment="Left" Margin="582,10,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Button x:Name="btnSaque" Content="Saque" HorizontalAlignment="Left" Margin="36,120,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="BtnSaque_Click"/>
-        <Button x:Name="btnDeposito" Content="Depósito" HorizontalAlignment="Left" Margin="36,174,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
-        <Button x:Name="btnBoleto" Content="Boletos" HorizontalAlignment="Left" Margin="36,284,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
-        <Button x:Name="btnTransferencia" Content="Transferência" HorizontalAlignment="Left" Margin="36,230,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
-        <Button x:Name="btnExtrato" Content="Extrato" HorizontalAlignment="Left" Margin="36,339,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,120,0,0" VerticalAlignment="Top" Width="322">
+        <Button x:Name="btnSaque" Content="Saque" HorizontalAlignment="Left" Margin="36,222,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="BtnSaque_Click"/>
+        <Button x:Name="btnDeposito" Content="Depósito" HorizontalAlignment="Left" Margin="36,276,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="BtnDeposito_Click"/>
+        <Button x:Name="btnBoleto" Content="Boletos" HorizontalAlignment="Left" Margin="36,386,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="BtnBoleto_Click"/>
+        <Button x:Name="btnTransferencia" Content="Transferência" HorizontalAlignment="Left" Margin="36,332,0,0" VerticalAlignment="Top" Width="202" Height="50" Click="BtnTransferencia_Click"/>
+        <Button x:Name="btnExtrato" Content="Extrato" HorizontalAlignment="Left" Margin="36,441,0,0" VerticalAlignment="Top" Width="202" Height="50"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,222,0,0" VerticalAlignment="Top" Width="322">
             <Label Content="O saque realizado pode ser retirado em qualquer uma &#xD;&#xA;de nossas agências!" HorizontalAlignment="Left" Margin="-1,0,-1,-1" VerticalAlignment="Top" Height="49" Width="322" RenderTransformOrigin="0.471,0.694" FontWeight="Medium" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,174,0,0" VerticalAlignment="Top" Width="322">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,276,0,0" VerticalAlignment="Top" Width="322">
             <Label Content="Sempre que realizar um depósito o dinheiro é&#xD;&#xA;adiciondo em sua conta instantâneamente!" HorizontalAlignment="Left" Margin="-1,-1,-1,0" VerticalAlignment="Top" Height="49" Width="322" RenderTransformOrigin="0.471,0.694" FontWeight="Medium" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,230,0,0" VerticalAlignment="Top" Width="322">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,332,0,0" VerticalAlignment="Top" Width="322">
             <Label Content="As transferências podem ocorrem quando seu saldo for&#xD;&#xA;positivo e a conta destino seja BancoCSharp!" HorizontalAlignment="Left" Margin="-1,0,-1,-1" VerticalAlignment="Top" Height="49" Width="322" RenderTransformOrigin="0.471,0.694" FontWeight="Medium" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,284,0,0" VerticalAlignment="Top" Width="322">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,386,0,0" VerticalAlignment="Top" Width="322">
             <Label Content="Pague seus boletos pelo programa do BancoCSharp!&#xD;&#xA;Adicione quantos precisar e finalize o pagamento." HorizontalAlignment="Left" Margin="-1,0,-1,-1" VerticalAlignment="Top" Height="49" Width="322" RenderTransformOrigin="0.471,0.694" FontWeight="Medium" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,339,0,0" VerticalAlignment="Top" Width="322">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="238,441,0,0" VerticalAlignment="Top" Width="322">
             <Label Content="Veja todo seu extrato com apenas um clique!&#xD;&#xA;Suas operações estão seguras conosco." HorizontalAlignment="Left" Margin="-1,0,-1,-1" VerticalAlignment="Top" Height="49" Width="322" RenderTransformOrigin="0.471,0.694" FontWeight="Medium" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic"/>
         </Border>
+        <Label Content="Escolha a conta que deseja para realizar a operação: " HorizontalAlignment="Left" Margin="36,74,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboConta" HorizontalAlignment="Left" Margin="44,100,0,0" VerticalAlignment="Top" Width="280"/>
+        <Label Content="Cadastrar nova conta:" HorizontalAlignment="Left" Margin="412,74,0,0" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="txtNovaConta" HorizontalAlignment="Left" Height="24" Margin="412,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239"/>
+        <Button x:Name="btnSalvarConta" Content="Salvar" HorizontalAlignment="Left" Margin="656,98,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnSalvarConta_Click"/>
 
     </Grid>
 </Window>
