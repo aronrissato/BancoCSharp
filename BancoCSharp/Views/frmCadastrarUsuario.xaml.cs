@@ -107,7 +107,7 @@ namespace BancoCSharp.Views
                 }
                 else
                 {
-                    MessageBox.Show("Usuário já cadastrado!", "BancoCSharp");
+                    MessageBox.Show("Usuário já cadastrado!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                     LimparFormularioCliente();
                 }
             }

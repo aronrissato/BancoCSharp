@@ -31,17 +31,17 @@ namespace BancoCSharp.Views
 
         private void BtnTransferir_Click(object sender, RoutedEventArgs e)
         {
-            Conta conta_reme = ContaDAO.BuscarContaIdPorDigConta(tr_DigConta);
+            Conta conta_reme = OperacaoDAO.BuscarContaIdPorDigConta(tr_DigConta);
             int tr_DigConta_Destino = Convert.ToInt32(txtDestino.Text);
             int ValorTransf = Convert.ToInt32(txtValorTransf.Text);
 
-            Conta contaDestino = ContaDAO.BuscarContaIdPorDigConta(tr_DigConta_Destino);
+            Conta contaDestino = OperacaoDAO.BuscarContaIdPorDigConta(tr_DigConta_Destino);
 
             var operacao = OperacaoDAO.RealizaTransferencia(conta_reme, contaDestino, ValorTransf);
 
             if (operacao)
             {
-                MessageBox.Show("Transferência realizada!", "BancoCSharp", MessageBoxButton.OK);
+                MessageBox.Show("Transferência realizada!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             else

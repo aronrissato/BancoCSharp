@@ -46,11 +46,12 @@ namespace BancoCSharp.Views
             cboConta.ItemsSource = ClienteDAO.ListarContas(clienteId);
             cboConta.DisplayMemberPath = "DigConta";
             cboConta.SelectedValuePath = "DigConta";
-            
+
         }
 
-        private void BtnSalvarConta_Click(object sender, RoutedEventArgs e)
+        private void BtnSalvarConta_Click_1(object sender, RoutedEventArgs e)
         {
+
             Cliente cliente = ClienteDAO.BuscarClientePorUsuarioId(usuarioId);
 
             Conta conta = new Conta
@@ -58,6 +59,8 @@ namespace BancoCSharp.Views
                 DigConta = Convert.ToInt32(txtNovaConta.Text),
                 ClienteId = cliente
             };
+
+            int contador = Convert.ToInt32(txtNovaConta.Text);
 
             var isExisted = ClienteDAO.BuscarContaPorDigConta(conta);
 
@@ -67,7 +70,7 @@ namespace BancoCSharp.Views
 
                 if (result)
                 {
-                    MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
+                    MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Information);
                     cboConta.ItemsSource = ClienteDAO.ListarContas(cliente.Id);
                     cboConta.DisplayMemberPath = "DigConta";
                     cboConta.SelectedValuePath = "DigConta";
@@ -75,11 +78,16 @@ namespace BancoCSharp.Views
                 }
                 else
                 {
-                    MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
+                    MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                     LimparCadastroConta();
                 }
             }
+            else
+            {
+                MessageBox.Show("Informe 6 dígitos para a nova conta.", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
+
 
         private void BtnSaque_Click(object sender, RoutedEventArgs e)
         {
@@ -117,5 +125,6 @@ namespace BancoCSharp.Views
             frmBoletos boletos = new frmBoletos(op_digConta, clienteId);
             boletos.ShowDialog();
         }
+
     }
 }

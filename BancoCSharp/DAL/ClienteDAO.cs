@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BancoCSharp.DAL
 {
     class ClienteDAO
-    { 
+    {
         private static Context ctx = new Context();
 
         public static Cliente BuscarClientePorCpf(Cliente c)
@@ -135,7 +135,8 @@ namespace BancoCSharp.DAL
         //    var cliente = ctx.Clientes.Where(x => x.Id.Equals(clienteId)).FirstOrDefault();
 
         //    return cliente;
-        }
+
     }
+}
 
 

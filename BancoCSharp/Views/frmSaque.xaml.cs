@@ -39,14 +39,14 @@ namespace BancoCSharp.Views
 
         private void BtnEnviaSaque_Click(object sender, RoutedEventArgs e)
         {
-            Conta conta = ContaDAO.BuscarContaIdPorDigConta(sq_DigConta);
+            Conta conta = OperacaoDAO.BuscarContaIdPorDigConta(sq_DigConta);
             int valorSaque = Convert.ToInt32(txtValorSaque.Text);
 
             var operacao = OperacaoDAO.RealizaSaque(conta, valorSaque);
 
             if (operacao == true)
             {
-                MessageBox.Show("Saque realizado! Retire o montante em qualquer agência.", "BancoCSharp", MessageBoxButton.OK);
+                MessageBox.Show("Saque realizado! Retire o montante em qualquer agência.", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Information);
                 LimparCampos();
             }
             else

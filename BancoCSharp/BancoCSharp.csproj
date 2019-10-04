@@ -68,6 +68,9 @@
     <Compile Include="Views\frmDeposito.xaml.cs">
       <DependentUpon>frmDeposito.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmExtrato.xaml.cs">
+      <DependentUpon>frmExtrato.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmSaque.xaml.cs">
       <DependentUpon>frmSaque.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\frmEscolhaConta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\frmExtrato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

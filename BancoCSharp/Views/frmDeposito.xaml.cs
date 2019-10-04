@@ -40,14 +40,14 @@ namespace BancoCSharp.Views
 
         private void BtnDepositar_Click(object sender, RoutedEventArgs e)
         {
-            Conta conta = ContaDAO.BuscarContaIdPorDigConta(dp_DigConta);
+            Conta conta = OperacaoDAO.BuscarContaIdPorDigConta(dp_DigConta);
             int ValorDeposito = Convert.ToInt32(txtValorDeposito.Text);
 
             var operacao = OperacaoDAO.RealizaDeposito(conta, ValorDeposito);
 
             if (operacao)
             {
-                MessageBox.Show("Depósito realizado! Leve o montante em qualquer agência.", "BancoCSharp", MessageBoxButton.OK);
+                MessageBox.Show("Depósito realizado! Leve o montante em qualquer agência.", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             else

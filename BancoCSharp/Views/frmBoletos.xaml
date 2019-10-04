@@ -7,17 +7,17 @@
         Title="frmBoletos" Height="435.833" Width="467.5">
     <Grid>
         <Label Content="Número do boleto: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="114"/>
-        <TextBox x:Name="txtCodigoBoleto" HorizontalAlignment="Left" Height="26" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331"/>
+        <TextBox x:Name="txtCodigoBoleto" HorizontalAlignment="Left" Height="26" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" MaxLength="9"/>
         <Label Content="Valor do boleto:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="149"/>
         <TextBox x:Name="txtValorBoleto" HorizontalAlignment="Left" Height="26" Margin="10,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149"/>
         <Button x:Name="btnAddBoleto" Content="Adicionar" HorizontalAlignment="Left" Margin="346,104,0,0" VerticalAlignment="Top" Width="87" Height="35" Click="BtnAddBoleto_Click"/>
         <DataGrid x:Name="dtaBoletos" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="207" Margin="10,144,0,0" VerticalAlignment="Top" Width="423">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding CodigoBoleto}" Header="Código do boleto" Width="290"/>
-                <DataGridTextColumn Binding="{Binding Valor}" Header="Valor" Width="130"/>
+                <DataGridTextColumn Binding="{Binding boletoId}" Header="Código do boleto" Width="290"/>
+                <DataGridTextColumn Binding="{Binding valorBoleto}" Header="Valor" Width="130"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lblTotal" Content="Total: " HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="246" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="btnPagarBoletos" Content="Pagar" HorizontalAlignment="Left" Margin="319,356,0,0" VerticalAlignment="Top" Width="114" Height="36" FontSize="17"/>
+        <Button x:Name="btnPagarBoletos" Content="Pagar" HorizontalAlignment="Left" Margin="319,356,0,0" VerticalAlignment="Top" Width="114" Height="36" FontSize="17" Click="BtnPagarBoletos_Click"/>
     </Grid>
 </Window>

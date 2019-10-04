@@ -64,14 +64,14 @@ namespace BancoCSharp.Views
 
                     if (result)
                     {
-                        MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp");
+                        MessageBox.Show("Conta cadastrada com sucesso!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Information);
                         cboContas.ItemsSource = ContaDAO.ListarContas(clienteId);
                         cboContas.DisplayMemberPath = "DigConta";
                         cboContas.SelectedValuePath = "DigConta";
                     }
                     else
                     {
-                        MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp");
+                        MessageBox.Show("Ocorreu um erro ao salvar a conta!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     LimparFormulario();
                 }

@@ -63,7 +63,7 @@ namespace BancoCSharp
             }
             else
             {
-                MessageBox.Show("Usuario não encontrado!", "BancoCSharp", MessageBoxButton.OK);
+                MessageBox.Show("Usuario não encontrado!", "BancoCSharp", MessageBoxButton.OK, MessageBoxImage.Error);
                 LimparFormulario();
             }
         }

@@ -1,6 +1,7 @@
 ﻿using BancoCSharp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace BancoCSharp.DAL
@@ -8,7 +9,7 @@ namespace BancoCSharp.DAL
     class ContaDAO
     {
         public static Context ctx = new Context();
-        
+
         public static Conta BuscarContaPorDigConta(Conta c)
         {
             return ctx.Contas.FirstOrDefault(x => x.DigConta.Equals(c.DigConta));
@@ -31,7 +32,7 @@ namespace BancoCSharp.DAL
                 ctx.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -55,6 +56,17 @@ namespace BancoCSharp.DAL
             var cliente = ctx.Clientes.Where(x => x.Id.Equals(clienteId)).FirstOrDefault();
 
             return cliente;
+        }
+
+
+        public static bool RealizaDeposito(Conta conta, int valorDeposito)
+        {
+            conta.Saldo += valorDeposito;
+            ctx.Contas.Attach(conta);
+            ctx.Entry(conta).State = EntityState.Modified;
+            ctx.SaveChangesAsync();
+
+            return true;
         }
 
     }
