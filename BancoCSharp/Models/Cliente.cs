@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace BancoCSharp.Models
 {
+	//Teste Diogo Deconto
     [Table("Cliente")]
 
     public class Cliente
